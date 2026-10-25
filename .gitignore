@@ -1,0 +1,17 @@
+# Build output
+build/
+cmake-build-*/
+out/
+
+# Runtime databases (keep the data/ folder itself). They hold account
+# details and password hashes, so no database file is ever committed.
+data/*
+!data/.gitkeep
+*.db
+*.db-wal
+*.db-shm
+
+# Editors
+.vscode/
+.idea/
+*.swp

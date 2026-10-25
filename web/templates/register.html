@@ -1,0 +1,32 @@
+<section class="card narrow">
+  <h1>Create an account</h1>
+  <p class="muted">A wallet is created for you automatically.</p>
+
+  <form method="post" action="/register" autocomplete="off">
+    <input type="hidden" name="csrf" value="{{csrf}}">
+
+    <label for="full_name">Full name</label>
+    <input id="full_name" name="full_name" value="{{full_name}}" maxlength="100" required autofocus>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" value="{{email}}" maxlength="100" required>
+
+    <label for="phone">Mobile number</label>
+    <input id="phone" name="phone" value="{{phone}}" inputmode="tel" placeholder="98765 43210" required>
+    <p class="hint">10 digits starting with 6, 7, 8 or 9.</p>
+
+    <label for="upi_id">Choose a UPI ID</label>
+    <input id="upi_id" name="upi_id" value="{{upi_id}}" placeholder="name@paysphere" required>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" minlength="8" maxlength="128" required>
+    <p class="hint">At least 8 characters. Avoid common passwords and your own name.</p>
+
+    <label for="confirm">Confirm password</label>
+    <input id="confirm" type="password" name="confirm" minlength="8" maxlength="128" required>
+
+    <button type="submit" class="button primary">Create account</button>
+  </form>
+
+  <p class="muted small">Already registered? <a href="/login">Log in</a></p>
+</section>

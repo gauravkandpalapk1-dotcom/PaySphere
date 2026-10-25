@@ -1,0 +1,34 @@
+<section class="grid">
+  <div class="card balance-card">
+    <p class="label">Wallet balance</p>
+    <p class="balance">{{balance}}</p>
+    <p class="muted">{{full_name}}</p>
+    <p class="upi">{{upi_id}}</p>
+  </div>
+
+  <div class="card">
+    <h2>Add money</h2>
+    <form method="post" action="/deposit" autocomplete="off">
+      <input type="hidden" name="csrf" value="{{csrf}}">
+      <input type="hidden" name="key" value="{{deposit_key}}">
+
+      <label for="deposit_amount">Amount (Rs.)</label>
+      <input id="deposit_amount" name="amount" inputmode="decimal" placeholder="500.00" required>
+
+      <button type="submit" class="button">Deposit</button>
+    </form>
+    <p class="hint">Simulated: no bank account is charged.</p>
+  </div>
+
+  <div class="card">
+    {{{payment_panel}}}
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-head">
+    <h2>Recent activity</h2>
+    <a href="/history">View all</a>
+  </div>
+  {{{recent}}}
+</section>

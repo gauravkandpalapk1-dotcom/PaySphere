@@ -1,0 +1,16 @@
+<h2>Pay by UPI ID</h2>
+<form method="post" action="/pay" autocomplete="off">
+  <input type="hidden" name="csrf" value="{{csrf}}">
+  <input type="hidden" name="key" value="{{key}}">
+
+  <label for="payee">Payee UPI ID</label>
+  <input id="payee" name="payee" placeholder="name@paysphere" required>
+
+  <label for="pay_amount">Amount (Rs.)</label>
+  <input id="pay_amount" name="amount" inputmode="decimal" placeholder="250.00" required>
+
+  <label for="pin">UPI PIN</label>
+  <input id="pin" type="password" name="pin" inputmode="numeric" maxlength="6" required>
+
+  <button type="submit" class="button primary">Pay</button>
+</form>

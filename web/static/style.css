@@ -1,0 +1,242 @@
+/* PaySphere web front end: plain CSS, no frameworks, no JavaScript. */
+
+/* Always the light theme, on a white page. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --field: #f6f8fc; /* inputs and the receipt, so they stand out on white */
+  --surface: #ffffff;
+  --text: #1c2333;
+  --muted: #5d6679;
+  --border: #dde2ec;
+  --accent: #3b5bdb;
+  --accent-text: #ffffff;
+  --success-bg: #e6f6ec;
+  --success-text: #1d6b3a;
+  --error-bg: #fdecec;
+  --error-text: #a12626;
+  --info-bg: #e9efff;
+  --info-text: #2c428f;
+  --credit: #1d7a44;
+  --debit: #b4402a;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(20, 30, 60, 0.06), 0 4px 16px rgba(20, 30, 60, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+h2 { font-size: 1.15rem; margin: 0 0 0.75rem; }
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand { font-weight: 700; font-size: 1.15rem; color: var(--text); }
+.brand:hover { text-decoration: none; }
+.logo {
+  display: inline-grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.nav { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav form { margin: 0; }
+
+/* ---------- layout ---------- */
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.grid .card { margin-bottom: 0; }
+.card.narrow { max-width: 460px; margin-left: auto; margin-right: auto; }
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 1rem;
+}
+
+/* ---------- balance ---------- */
+
+.balance-card {
+  background: linear-gradient(135deg, var(--accent), #6f42c1);
+  color: #ffffff;
+  border: none;
+}
+.balance-card .muted, .balance-card .label { color: rgba(255, 255, 255, 0.8); }
+.label { margin: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.balance { margin: 0.25rem 0 1rem; font-size: 2rem; font-weight: 700; }
+.upi { margin: 0; font-family: ui-monospace, Consolas, monospace; }
+
+/* ---------- forms ---------- */
+
+label { display: block; font-weight: 600; font-size: 0.9rem; margin: 0.75rem 0 0.3rem; }
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.hint { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.82rem; }
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button.primary { color: var(--accent-text); background: var(--accent); }
+.button:hover { filter: brightness(1.08); }
+
+.link-button {
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.link-button:hover { text-decoration: underline; }
+
+.inline-form { display: flex; gap: 0.5rem; align-items: center; }
+.inline-form .button { margin-top: 0; white-space: nowrap; }
+
+/* ---------- notices ---------- */
+
+.notice {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+.notice-success { background: var(--success-bg); color: var(--success-text); }
+.notice-error   { background: var(--error-bg);   color: var(--error-text); }
+.notice-info    { background: var(--info-bg);    color: var(--info-text); }
+
+/* ---------- transactions ---------- */
+
+.table-wrap { overflow-x: auto; }
+
+table.transactions { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.transactions th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.transactions td { padding: 0.65rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.transactions tr:last-child td { border-bottom: none; }
+.transactions .num { text-align: right; white-space: nowrap; }
+.transactions .id { font-family: ui-monospace, Consolas, monospace; font-size: 0.82rem; }
+
+.credit { color: var(--credit); font-weight: 600; }
+.debit  { color: var(--debit);  font-weight: 600; }
+tr.failed .credit, tr.failed .debit { color: var(--muted); text-decoration: line-through; }
+.reason { display: block; color: var(--muted); font-size: 0.82rem; }
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge-success { background: var(--success-bg); color: var(--success-text); }
+.badge-failed  { background: var(--error-bg);   color: var(--error-text); }
+
+.filters, .pager { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.pager { justify-content: center; margin-top: 1rem; }
+.chip {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+}
+.chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+.chip:hover { text-decoration: none; border-color: var(--accent); }
+
+.receipt {
+  padding: 1rem;
+  overflow-x: auto;
+  background: var(--field);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font: 0.85rem/1.5 ui-monospace, Consolas, monospace;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 0.88rem; }
+
+@media (max-width: 600px) {
+  .topbar { flex-direction: column; align-items: flex-start; }
+  .balance { font-size: 1.6rem; }
+  .inline-form { flex-direction: column; align-items: stretch; }
+}

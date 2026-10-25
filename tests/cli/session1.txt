@@ -1,0 +1,71 @@
+1
+Asha Verma
+asha@example.com
+9876543210
+asha@paysphere
+correct horse battery
+correct horse battery
+1
+Ravi Kumar
+ravi@example.com
+9123456789
+ravi@paysphere
+correct horse battery
+correct horse battery
+1
+Someone Else
+ASHA@example.com
+9000000001
+someone@paysphere
+correct horse battery
+correct horse battery
+1
+Mismatch User
+mismatch@example.com
+9000000002
+mismatch@paysphere
+correct horse battery
+different password here
+2
+asha@example.com
+wrong password
+2
+asha@paysphere
+correct horse battery
+3
+ravi@paysphere
+10
+1357
+6
+1357
+1357
+2
+abc
+2
+1000
+3
+ravi@paysphere
+250.50
+1357
+3
+ravi@paysphere
+5000
+1357
+3
+nobody@paysphere
+10
+1357
+3
+ravi@paysphere
+10
+2468
+9
+1
+4
+1
+7
+2
+ravi@example.com
+correct horse battery
+1
+0

@@ -1,0 +1,18 @@
+<section class="card">
+  <div class="card-head">
+    <h1>Transaction history</h1>
+    <nav class="filters">{{{filters}}}</nav>
+  </div>
+
+  {{{table}}}
+
+  <nav class="pager">{{{pager}}}</nav>
+</section>
+
+<section class="card narrow">
+  <h2>Find a transaction</h2>
+  <form method="get" action="/receipt" class="inline-form">
+    <input name="id" placeholder="Transaction ID, e.g. TRF2026…" required>
+    <button type="submit" class="button">Show receipt</button>
+  </form>
+</section>
